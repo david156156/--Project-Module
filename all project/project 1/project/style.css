@@ -1,0 +1,63 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100vw;
+}
+
+div {
+    width: 400px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    direction: rtl;
+    position: absolute;
+    top: 120px;
+    right: 230px;
+    background-color: #1A1A1AD4;
+    padding: 50px;
+    color: #fff;
+
+    h3 {
+        font-family: heebo;
+        font-weight: 800;
+        font-size: 1.6rem;
+        padding-bottom: 10px;
+    }
+
+    p {
+        font-family: heebo;
+        font-size: 0.9rem;
+        font-weight: 300;
+        padding-bottom: 15px;
+    }
+
+    label {
+        padding-top: 5px;
+        font-family: heebo;
+        font-size: 0.7rem;
+        font-weight: bold;
+    }
+
+    button {
+        font-family: heebo;
+        font-weight: 500;
+        font-size: 1rem;
+        background-color: #D31C75;
+        padding: 6px 20px;
+        border: none;
+        margin-top: 20px;
+        width: 140px;
+        color: #fff;
+    }
+
+    input,
+    textarea {
+        border: 1px solid #D31C75;
+        line-height: 2.3em;
+        margin-bottom: 10px;
+    }
+}

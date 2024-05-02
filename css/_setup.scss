@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+%text,
+h1,
+h2,
+h3,
+p,
+button,
+a {
+    font-family: heebo;
+    color: #3A3A3A;
+}
+
+%button {
+    font-family: heebo;
+    color: #3A3A3A;
+    background-color: #1AE0EC;
+    border-radius: 18px;
+    padding: 6px 28px;
+    border: none;
+    font-weight: bold;
+}

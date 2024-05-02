@@ -1,0 +1,57 @@
+main {
+    background-color: #F6F6F6;
+    padding: 50px 0 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    >p {
+        width: 35vw;
+        text-align: center;
+    }
+
+    .project {
+        display: grid;
+        grid-template-rows: repeat(2, 1);
+        grid-template-columns: repeat(3, 300px);
+        gap: 35px;
+        padding: 30px;
+    }
+
+    .mycard {
+        border-radius: 10px;
+        background: #FFFFFF;
+        box-shadow: 3px 3px 15px #00000029;
+        padding-bottom: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+
+        h2 {
+            padding: 15px;
+            font-size: 1.7rem;
+            font-weight: bold;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        >img {
+            width: 300px;
+            height: 140px;
+        }
+    }
+
+    img {
+        width: 30px;
+        height: 30px;
+    }
+
+    a {
+        @extend %button;
+        margin: 15px;
+        text-decoration: none;
+    }
+}
