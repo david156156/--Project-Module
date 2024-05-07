@@ -1,7 +1,6 @@
 .opening {
-    height: 450px;
     background-color: #13E8F163;
-    padding: 100px;
+    padding: 100px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -29,5 +28,29 @@
         font-weight: bold;
         margin: 0 5px;
         text-decoration: none;
+    }
+}
+
+@media (min-width:250px) and (max-width:550px) {
+    .opening {
+        padding: 80px 0;
+
+        h1 {
+            font-size: 2.7rem;
+            padding: 20px 0 5px;
+
+        }
+
+        p {
+            width: 80vw;
+            padding-bottom: 20px;
+        }
+
+        a {
+            font-size: 0.7rem;
+            padding: 6px 18px;
+            font-weight: bold;
+            margin: 0 5px;
+        }
     }
 }

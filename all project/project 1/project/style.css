@@ -4,8 +4,13 @@
     box-sizing: border-box;
 }
 
-img {
+.img {
+    display: block;
     width: 100vw;
+}
+
+.imgMobil {
+    display: none;
 }
 
 div {
@@ -59,5 +64,34 @@ div {
         border: 1px solid #D31C75;
         line-height: 2.3em;
         margin-bottom: 10px;
+    }
+}
+
+@media (min-width:250px) and (max-width:550px) {
+    .img {
+        display: none;
+    }
+
+    .imgMobil {
+        display: block;
+        width: 100vw;
+    }
+
+    div {
+        width: 80vw;
+        height: auto;
+        position: absolute;
+        top: 70px;
+        right: 10vw;
+        padding: 35px;
+        margin: auto;
+
+        h3 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
     }
 }

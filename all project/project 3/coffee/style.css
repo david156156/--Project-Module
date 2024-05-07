@@ -113,4 +113,9 @@ button {
   .container-form-title {
     width: 78%;
   }
+
+  button {
+    padding: 8px 0;
+    width: 100%;
+  }
 }

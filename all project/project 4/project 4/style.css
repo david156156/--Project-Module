@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+.imgMobil {
+    display: none;
+}
+
 .main {
     width: 100vw;
     overflow: hidden;
@@ -36,8 +40,6 @@
     }
 }
 
-
-
 form {
     direction: rtl;
     display: flex;
@@ -45,8 +47,7 @@ form {
     margin: auto;
     font-family: Assistant;
     color: #011560;
-
-    padding: 50px 0 150px 0;
+    padding: 50px 30px 150px;
 
     div {
         display: flex;
@@ -59,6 +60,14 @@ form {
         font-weight: bold;
     }
 
+    input {
+        border: none;
+        border-bottom: 2px solid #D3E10E;
+        line-height: 2.3em;
+        background-color: #E5EEFF;
+        width: 250px;
+    }
+
     button {
         font-size: 1rem;
         background-color: #D3E10E;
@@ -66,14 +75,41 @@ form {
         border: none;
         margin: auto;
         margin-bottom: 10px;
+        color: #011560;
+    }
+}
+
+@media (min-width:250px) and (max-width:370px) {
+
+    main,
+    .img,
+    h3,
+    p {
+        display: none;
     }
 
-    input,
-    textarea {
-        border: none;
-        border-bottom: 2px solid #D3E10E;
-        line-height: 2.3em;
-        background-color: #F6F6F6;
-        width: 250px;
+    .imgMobil {
+        display: block;
+        width: 100%;
+    }
+
+    form {
+        flex-direction: column;
+        width: 100%;
+
+
+        div {
+            padding: 10px 0;
+        }
+
+        input {
+            width: 100%;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 10px;
+            font-weight: bold;
+        }
     }
 }

@@ -1,9 +1,13 @@
 main {
     background-color: #F6F6F6;
-    padding: 50px 0 50px 0;
+    padding: 50px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    >h2 {
+        font-weight: 900;
+    }
 
     >p {
         width: 35vw;
@@ -36,6 +40,7 @@ main {
 
         p {
             text-align: center;
+            width: 92%;
         }
 
         >img {
@@ -53,5 +58,23 @@ main {
         @extend %button;
         margin: 15px;
         text-decoration: none;
+    }
+}
+
+@media (min-width:250px) and (max-width:550px) {
+    main {
+        padding: 90px 0;
+
+        >p {
+            width: 80vw;
+            padding-bottom: 20px;
+        }
+
+        .project {
+            display: grid;
+            grid-template-rows: repeat();
+            grid-template-columns: repeat(1, 300px);
+
+        }
     }
 }
