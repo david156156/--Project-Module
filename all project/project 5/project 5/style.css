@@ -6,6 +6,7 @@
 
 .itemMobil {
     display: none;
+    direction: rtl;
 }
 
 .grid {
@@ -33,6 +34,7 @@ img {
     text-align: center;
     align-content: center;
     padding: 40px;
+    direction: rtl;
 
     h2 {
         color: #0EE1DA;
@@ -69,6 +71,8 @@ img {
         font-size: 0.9rem;
         font-family: Assistant;
         padding-bottom: 15px;
+        direction: rtl;
+
     }
 
     div {

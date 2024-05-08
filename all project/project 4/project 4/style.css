@@ -36,6 +36,7 @@
             font-weight: 300;
             padding-bottom: 15px;
             color: #fff;
+            direction: rtl;
         }
     }
 }
@@ -79,7 +80,7 @@ form {
     }
 }
 
-@media (min-width:250px) and (max-width:370px) {
+@media (min-width:250px) and (max-width:550px) {
 
     main,
     .img,
