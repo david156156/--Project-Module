@@ -90,6 +90,7 @@ img {
     }
 
     input {
+        direction: rtl;
         line-height: 2.5rem;
         border: none;
         border-bottom: 4px solid #0EE1DA;
@@ -97,8 +98,12 @@ img {
         width: 100%;
     }
 
-    #content {
-        line-height: 7rem;
+    textarea {
+        direction: rtl;
+        border: none;
+        border-bottom: 4px solid #0EE1DA;
+        background-color: #E5EEFF;
+        width: 100%;
     }
 
     button {
@@ -172,10 +177,6 @@ img {
         input {
             line-height: 1.5rem;
             border-bottom: 2px solid #0EE1DA;
-        }
-
-        #content {
-            line-height: 4rem;
         }
 
         button {

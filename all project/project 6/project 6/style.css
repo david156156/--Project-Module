@@ -71,6 +71,7 @@
                 line-height: 2rem;
                 width: 290px;
             }
+
         }
 
         label {
@@ -85,8 +86,7 @@
             flex-direction: column;
             padding-bottom: 20px;
 
-            #message {
-                line-height: 5.5rem;
+            textarea {
                 border: none;
                 border-bottom: 3px solid #FDBD03;
                 background-color: #E5EEFF;
@@ -184,7 +184,7 @@
                 width: 100%;
                 padding-bottom: 0;
 
-                #message {
+                textarea {
                     width: 100%;
                 }
             }
