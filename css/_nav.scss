@@ -60,17 +60,12 @@
     font-weight: bold;
 }
 
-input[type="checkbox"] {
-    display: none;
-}
-
 #hamburger {
     display: none;
     color: #1AE0EC;
 }
 
-.menui div a:hover,
-#hamburger:hover {
+.menui div a:hover {
     color: #ffffff;
 }
 
@@ -92,6 +87,7 @@ input[type="checkbox"] {
 
     .allMenu {
         text-align: right;
+        justify-content: center;
     }
 
     .menui {
@@ -99,17 +95,24 @@ input[type="checkbox"] {
         width: 120px;
         font-size: 1.5rem;
         display: none;
+        position: absolute;
+        right: 0;
+        top: 45px;
+        padding: 10px;
     }
 
     #hamburger {
         display: block;
         width: 40px;
         height: 40px;
-        font-size: 2rem;
+        font-size: 20pt;
+        border-radius: 5px;
+        border: none;
     }
 
-    input[type="checkbox"]:checked~.menui {
-        display: block;
-        padding: 0;
+    #hamburger:hover {
+        color: #ffffff;
+        background-color: #3b3b3b;
     }
+
 }
