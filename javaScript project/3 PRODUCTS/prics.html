@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRODUCTS</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="container w-75 text-center">
+        <h3 class="display-3 text-secondary my-4">
+            PR<i class="fa-solid fa-cart-shopping"></i>DUCTS
+        </h3>
+        <div class="row">
+            <div class="col-sm-5 mb-1">
+                <input type="text" class="form-control" id="name" placeholder="Item name" />
+            </div>
+            <div class="col-sm-5 mb-2">
+                <input type="number" class="form-control" id="price" placeholder="Item price" />
+            </div>
+            <div class="col-sm-2">
+                <button onclick="addItem()" class="btn btn-info col-12">Add</button>
+            </div>
+        </div>
+        <table class="table table-striped mt-5">
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>price</th>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody id="products">
+            </tbody>
+        </table>
+
+    </div>
+    <script>
+        let localS = JSON.parse(localStorage.getItem("localS")) || [];
+        console.log(localS);
+
+        for (let i = 0; i < localS.length; i++) {
+            document.getElementById("products").innerHTML += `<tr id="row-${localS[i].name}">
+            <td>${localS[i].name}</td>
+            <td>${localS[i].price}</td>
+            <td><i onclick="DeleteRow('${localS[i].name}')" class="fa-regular fa-trash-can"></i></td>
+            </tr>`;
+        }
+
+        function addItem() {
+            let name = document.getElementById("name").value;
+            let price = +document.getElementById("price").value;
+
+            document.getElementById("products").innerHTML += `<tr id="row-${name}">
+            <td>${name}</td>
+            <td>${price}</td>
+            <td><i onclick="DeleteRow('${name}')" class="fa-regular fa-trash-can"></i></td>
+            </tr>`;
+
+            localS.push(new pricelocalStorage(name, price));
+            console.log(localS);
+            localStorage.setItem("localS", JSON.stringify(localS));
+
+            document.getElementById("name").value = "";
+            document.getElementById("price").value = "";
+        }
+
+        function pricelocalStorage(name, price) {
+            this.name = name;
+            this.price = price;
+        }
+
+        function DeleteRow(name) {
+            localS = localS.filter(function (product) {
+                return product.name != name;
+            })
+            console.log(localS);
+            document.getElementById(`row-${name}`).remove();
+            localStorage.setItem("localS", JSON.stringify(localS));
+        };
+    </script>
+
+</body>
+
+</html>

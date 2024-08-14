@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>איקס עיגול</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: #c9e7ff;
+      }
+
+      h1 {
+        text-align: center;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        font-size: 3rem;
+        color: #585858;
+      }
+
+      .borde {
+        background-color: #585858;
+        width: 300px;
+        height: 300px;
+        display: grid;
+        gap: 5px;
+        grid-template-rows: repeat(3, 90px);
+        grid-template-columns: repeat(3, 90px);
+        margin: 0 auto;
+        justify-content: center;
+        align-content: center;
+        border-radius: 5px;
+        box-shadow: 4px 4px 6px #979797;
+      }
+
+      .borde .btn {
+        background-color: #e2f1fd;
+        border-radius: 5px;
+        font-size: 4rem;
+        text-align: center;
+        align-content: center;
+      }
+
+      #win {
+        padding-top: 10px;
+        text-align: center;
+        font-size: 3.5rem;
+        color: rgb(0, 202, 0);
+      }
+
+      .btn-start {
+        border-radius: 5px;
+        border: none;
+        background-color: rgb(207, 207, 207);
+        color: #8d8d8d;
+        padding: 6px 25px;
+        font-weight: bolder;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        font-size: 1.3rem;
+      }
+
+      .btn-start:hover {
+        background-color: #8d8d8d;
+        color: rgb(207, 207, 207);
+        transition: color 0.6s ease-in-out, background-color 0.15s ease-in-out;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>בואו לשחק איקס עיגול</h1>
+    <div class="borde">
+      <div class="btn"></div>
+      <div class="btn"></div>
+      <div class="btn"></div>
+      <div class="btn"></div>
+      <div class="btn"></div>
+      <div class="btn"></div>
+      <div class="btn"></div>
+      <div class="btn"></div>
+      <div class="btn"></div>
+    </div>
+    <p id="win"></p>
+    <script>
+      let turn = true; // true = "X"
+
+      let btns = document.querySelectorAll(".btn");
+      btns.forEach((b) => {
+        b.addEventListener("click", btnClick);
+      });
+
+      function btnClick() {
+        if (this.textContent != "") return;
+
+        if (turn) this.textContent = "X";
+        else this.textContent = "O";
+
+        if (checkWin()) {
+          document.getElementById("win").innerText =
+            "הוא המנצח " + this.textContent;
+          document.getElementById(
+            "win"
+          ).innerHTML += `<br><button class="btn-start" onclick="startOver()">משחק חדש</button>`;
+          btns.forEach((b) => {
+            b.style.pointerEvents = "none";
+          });
+        } else if (Array.from(btns).every((b) => b.textContent != "")) {
+          document.getElementById("win").innerText = "המשחק נגמר";
+          document.getElementById(
+            "win"
+          ).innerHTML += `<br><button class="btn-start" onclick="startOver()">משחק חדש</button>`;
+        }
+        turn = !turn;
+      }
+
+      function checkWin() {
+        if (
+          btns[0].textContent == btns[1].textContent &&
+          btns[1].textContent == btns[2].textContent &&
+          btns[2].textContent != ""
+        )
+          return true;
+        else if (
+          btns[3].textContent == btns[4].textContent &&
+          btns[4].textContent == btns[5].textContent &&
+          btns[5].textContent != ""
+        )
+          return true;
+        else if (
+          btns[6].textContent == btns[7].textContent &&
+          btns[7].textContent == btns[8].textContent &&
+          btns[8].textContent != ""
+        )
+          return true;
+        else if (
+          btns[0].textContent == btns[3].textContent &&
+          btns[3].textContent == btns[6].textContent &&
+          btns[6].textContent != ""
+        )
+          return true;
+        else if (
+          btns[1].textContent == btns[4].textContent &&
+          btns[4].textContent == btns[7].textContent &&
+          btns[7].textContent != ""
+        )
+          return true;
+        else if (
+          btns[2].textContent == btns[5].textContent &&
+          btns[5].textContent == btns[8].textContent &&
+          btns[8].textContent != ""
+        )
+          return true;
+        else if (
+          btns[0].textContent == btns[4].textContent &&
+          btns[4].textContent == btns[8].textContent &&
+          btns[8].textContent != ""
+        )
+          return true;
+        else if (
+          btns[2].textContent == btns[4].textContent &&
+          btns[4].textContent == btns[6].textContent &&
+          btns[6].textContent != ""
+        )
+          return true;
+      }
+      function startOver() {
+        btns.forEach((b) => {
+          b.textContent = "";
+          b.style.pointerEvents = "auto";
+        });
+        document.getElementById("win").innerText = "";
+        turn = true;
+      }
+    </script>
+  </body>
+</html>
