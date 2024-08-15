@@ -19,7 +19,7 @@ window.addNewAction = function addNewAction() {
 };
 
 function ViewList() {
-  actionsManager.actions = JSON.parse(localStorage.getItem("myAccount"));
+  actionsManager.actions = JSON.parse(localStorage.getItem("myAccount")) || [];
   document.getElementById("inputDescription").value = "";
   document.getElementById("inputAmount").value = "";
   document.getElementById("newTr").innerHTML = "";
@@ -28,7 +28,7 @@ function ViewList() {
     if (action.type == "Income") {
       document.getElementById("newTr").innerHTML += `<tr>
                   <th scope="row">${action.description}</th>
-                  <td class="text-success">${action.amount}</td>
+                  <td class="text-success">${action.amount}₪</td>
                   <td>
                     <i onclick="updateAction(${action.id},${action.amount})" class="fa-regular fa-pen-to-square text-success"></i>
                   </td>
@@ -37,7 +37,7 @@ function ViewList() {
     } else {
       document.getElementById("newTr").innerHTML += `<tr>
     <th scope="row">${action.description}</th>
-    <td class="text-danger">-${action.amount}</td>
+    <td class="text-danger">-${action.amount}₪</td>
     <td>
       <i onclick="updateAction(${action.id},${action.amount})" class="fa-regular fa-pen-to-square text-success"></i>
     </td>
@@ -51,7 +51,7 @@ function ViewList() {
 }
 
 window.updateAction = function updateAction(id, Amount) {
-  let newAmount = prompt("plis", Amount);
+  let newAmount = prompt("Please write the corrected amount", Amount);
   if (newAmount) {
     actionsManager.updateAction(id, newAmount);
     localStorage.setItem("myAccount", JSON.stringify(actionsManager.actions));
