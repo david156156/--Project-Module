@@ -44,7 +44,7 @@
         <div class="col-12 col-sm-5">
           <p>You have 5 attampts to guess number (1-10):</p>
           <div class="row justify-content-center">
-            <label class="" for="number">Your guess:</label>
+            <label for="number">Your guess:</label>
             <input
               id="number"
               type="number"
@@ -59,10 +59,16 @@
         </div>
 
         <div class="col-12 mt-3 col-sm-7 mt-sm-0">
-          <button onclick="again()" class="btn btn-outline-info">
+          <button
+            id="again"
+            onclick="again()"
+            class="btn btn-outline-info"
+            disabled
+          >
             start again
           </button>
           <div id="par"></div>
+          <div id="err"></div>
         </div>
       </div>
     </div>
@@ -72,10 +78,12 @@
 
       let checkNum = 0;
       function Check() {
+        document.getElementById("err").innerHTML = "";
+
         let num = document.getElementById("number").value;
         if (num > 10 || num < 1 || num == isNaN(1)) {
           document.getElementById(
-            "par"
+            "err"
           ).innerHTML = `<p  style="color: orange;">Please enter number between 1 end 10</p>`;
         } else if (num < randomNumber) {
           document.getElementById(
@@ -96,6 +104,7 @@
           document.getElementById("Check").disabled = true;
 
           checkNum++;
+          document.getElementById("again").disabled = false;
         }
         if (checkNum == 5) {
           document.getElementById(
@@ -104,8 +113,11 @@
           document.getElementById("par").style.color = "red";
           document.getElementById("number").readOnly = true;
           document.getElementById("Check").disabled = true;
+          document.getElementById("again").disabled = false;
         }
         console.log(checkNum);
+
+        document.getElementById("number").value = "";
       }
 
       function again() {
@@ -116,6 +128,7 @@
         document.getElementById("number").value = "";
         randomNumber = Math.ceil(Math.random() * 10);
         console.log(randomNumber);
+        document.getElementById("again").disabled = true;
       }
     </script>
   </body>
