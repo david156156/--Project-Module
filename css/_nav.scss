@@ -92,13 +92,18 @@
 
   .menui {
     background-color: #000;
-    width: 120px;
+    width: 220px;
     font-size: 1.5rem;
     display: none;
     position: absolute;
     right: 0;
     top: 45px;
     padding: 10px;
+    direction: rtl;
+
+    div {
+      height: 40px;
+    }
   }
 
   #hamburger {
