@@ -8,8 +8,8 @@
   flex-direction: row;
   justify-content: space-between;
   margin: 0 auto;
-  padding-left: 15vw;
-  padding-right: 15vw;
+  padding-left: 13vw;
+  padding-right: 13vw;
   border-top: 2px solid #1ae0ec;
 }
 
@@ -40,12 +40,13 @@
 }
 
 .menui {
-  width: 70vh;
+  width: 700px;
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
   margin: auto;
+  direction: rtl;
 }
 
 .menui a {
@@ -63,10 +64,6 @@
 #hamburger {
   display: none;
   color: #1ae0ec;
-}
-
-.menui div a:hover {
-  color: #ffffff;
 }
 
 @media (min-width: 250px) and (max-width: 550px) {
@@ -115,8 +112,4 @@
     border: none;
   }
 
-  #hamburger:hover {
-    color: #ffffff;
-    background-color: #3b3b3b;
-  }
 }

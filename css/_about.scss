@@ -22,13 +22,14 @@
     padding-bottom: 20px;
 }
 
-.about button {
+.about a {
     @extend %text;
     background-color: #1AE0EC;
     border-radius: 18px;
     padding: 6px 28px;
     border: none;
     font-weight: bold;
+    text-decoration: none;
 }
 
 @media (min-width:250px) and (max-width:550px) {
